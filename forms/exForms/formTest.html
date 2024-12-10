@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Working with form</title>
+    <style>
+      body {
+        text-align: center;
+      }
+      input {
+        padding: 8px;
+        width: 40%;
+        outline: none;
+      }
+      button {
+        width: 100px;
+        background-color: green;
+        color: white;
+        border: 2px solid green;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Testing of Form</h3>
+    <div class="message"></div>
+    <form action="../anotherpage.html" onsubmit="return formValidate()">
+      <label for="">E-mail</label>
+      <br />
+      <input type="text" class="user-email" placeholder="Enter a valid email" />
+      <br />
+      <br />
+
+      <label for="">Password</label>
+      <br />
+      <input
+        type="password"
+        class="user-password"
+        placeholder="Enter a valid password"
+      />
+      <br />
+      <br />
+
+      <input type="submit" name="" value="submit" class="" />
+    </form>
+    <!-- <script></script> -->
+    <script>
+      const message = document.querySelector(".message");
+      const emailVal = document.querySelector(".user-email");
+      const passwordVal = document.querySelector(".user-password");
+      ///form validation section
+      function formValidate() {
+        // console.log("Validating Form");
+
+        if ((emailVal.value && passwordVal.value) === "") {
+          msg("Fill the space provided");
+          return false;
+        } else {
+          //   msg("Yes you get it right now ");
+          //   console.log("");
+          return true;
+        }
+      }
+      function msg(m) {
+        message.textContent = m;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>exericse 11.10</title>
+    <style>
+      body {
+        text-align: center;
+      }
+      input {
+        outline: none;
+        width: 250px;
+        padding: 10px 5px;
+        font-size: 18px;
+      }
+      input::placeholder {
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Exericse 11.10</h3>
+    <div>
+      <form action="#">
+        <span class="msg1"></span>
+        <br />
+        <label for="">First Name</label>
+        <br />
+        <input type="text" placeholder="Enter your firstname" class="first" />
+        <br /><br />
+        <span class="msg2"></span>
+        <br />
+        <label for="">Last Name</label>
+        <br />
+        <input type="text" placeholder="Enter your lastname" class="last" />
+        <br /><br />
+        <label for="">Age</label>
+        <br />
+        <input type="text" placeholder="Enter your age" class="age" />
+        <div id="message"></div>
+        <br /><br />
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+    <script>
+      const msg = document.querySelector("#message");
+      const formTag = document.querySelector("form");
+      const submit = document.querySelector("input[type='submit']");
+      const lastName = document.querySelector(".last");
+      const firstName = document.querySelector(".first");
+      const age = document.querySelector(".age");
+      const msg1 = document.querySelector(".msg1");
+      const msg2 = document.querySelector(".msg2");
+      ////////form section///////
+      let error = false;
+      formTag.addEventListener("submit", (e) => {
+        // e.preventDefault();
+        checker();
+        error = true;
+      });
+
+      function checker() {
+        if (isNaN(firstName.value.length) < 5) {
+          console.log(firstName.value);
+          mssg1("Sorry! the word length is lessthan 5 ");
+        }
+        if (isNaN(lastName.value)) {
+          console.log(lastName.value);
+          mssg2("Sorry! the word length is lessthan 6 ");
+        }
+        if (!isNaN(age.value) < 19) {
+          message(
+            `Sorry! your age ${age.value} years is not qualify for admission`
+          );
+          //   console.log(
+          //     "Sorry! your age ",
+          //     age.value,
+          //     "years is not qualify for admission"
+          //   );
+        } else {
+          //   console.log();
+          message("Yes! you are qualify to admission ");
+        }
+      }
+      function message(ele) {
+        msg.textContent = ele;
+      }
+      function mssg1(errMsg) {
+        msg1.textContent = errMsg;
+      }
+      function mssg2(errMsg2) {
+        msg2.textContent = errMsg2;
+      }
+      //   submit.addEventListener("click", () => {
+      //     console.log("Hello! Welcome to our World of Coding!");
+      //   });
+    </script>
+  </body>
+</html>
